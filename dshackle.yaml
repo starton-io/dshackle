@@ -1,5 +1,3 @@
-## TEST FILE, WRONG BLOCKCHAIN
-
 version: v1
 port: 2449
 tls:
@@ -11,6 +9,8 @@ proxy:
   routes:
     - id: eth
       blockchain: ethereum
+    - id: bsc
+      blockchain: bsc
 
 cluster:
   upstreams:
@@ -28,3 +28,9 @@ cluster:
         ethereum:
           rpc:
             url: "https://goerli.infura.io/v3/${INFURA_USER}"
+    - id: bsc
+      chain: bsc
+      connection:
+        ethereum:
+          rpc:
+            url: "https://bsc-dataseed.binance.org"

@@ -31,8 +31,6 @@ cglib-nodep = "cglib:cglib-nodep:3.3.0"
 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
-emerald-api = "io.emeraldpay:emerald-api:0.12-alpha.3"
-
 equals-verifier = "nl.jqno.equalsverifier:equalsverifier:3.3"
 
 etherjar-domain = { module = "io.emeraldpay.etherjar:etherjar-domain", version.ref = "etherjar" }
