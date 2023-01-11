@@ -146,9 +146,9 @@ class DefaultEthereumMethods(
                     Chain.BSC == chain -> {
                         "\"56\""
                     }
-                    Chain.AVAX == chain -> {
-                        "\"43114\""
-                    }
+//                    Chain.AVAX == chain -> {
+//                        "\"43114\""
+//                    }
                     else -> throw RpcException(-32602, "Invalid chain")
                 }
             }
@@ -178,12 +178,12 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_GOERLI == chain -> {
                         "\"0x5\""
                     }
-//                    Chain.BSC == chain -> {
-//                        "\"0x38\""
-//                    }
-                    Chain.AVAX == chain -> {
-                        "\"0xa86a\""
+                    Chain.BSC == chain -> {
+                        "\"0x38\""
                     }
+//                    Chain.AVAX == chain -> {
+//                        "\"0xa86a\""
+//                    }
                     else -> throw RpcException(-32602, "Invalid chain")
                 }
             }

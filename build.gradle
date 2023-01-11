@@ -50,6 +50,7 @@ configurations {
     compile.exclude group: "org.slf4j", module: "log4j-over-slf4j"
     // should be used only for generation of the stubs, the lib contains grpc classes
     compile.exclude group: "com.salesforce.servicelibs", module: "reactor-grpc"
+//    compile.exclude group: "com.github.starton-io:emerald-java-client:master", module: "reactor-grpc"
 }
 
 dependencies {
@@ -71,7 +72,9 @@ dependencies {
 
     implementation libs.bundles.etherjar
 
-    implementation 'com.github.starton-io:emerald-java-client:master'
+    implementation('com.github.starton-io:emerald-java-client:master') {
+        exclude module: 'reactor-grpc'
+    }
 
     implementation libs.bitcoinj
 
