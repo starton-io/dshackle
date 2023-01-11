@@ -28,9 +28,9 @@ cluster:
         ethereum:
           rpc:
             url: "https://goerli.infura.io/v3/${INFURA_USER}"
-#    - id: bsc
-#      chain: bsc
-#      connection:
-#        ethereum:
-#          rpc:
-#            url: "https://bsc-dataseed.binance.org"
+    - id: bsc
+      chain: bsc
+      connection:
+        ethereum:
+          rpc:
+            url: "https://bsc-dataseed.binance.org"
