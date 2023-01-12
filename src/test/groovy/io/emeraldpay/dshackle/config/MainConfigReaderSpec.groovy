@@ -52,7 +52,7 @@ class MainConfigReaderSpec extends Specification {
             port == 8082
             tls != null
             routes != null
-            routes.size() == 6
+            routes.size() == 11
             with(routes[0]) {
                 id == "eth"
                 blockchain == Chain.ETHEREUM
@@ -76,6 +76,26 @@ class MainConfigReaderSpec extends Specification {
             with(routes[5]) {
                 id == "bsc"
                 blockchain == Chain.BSC
+            }
+            with(routes[6]) {
+                id == "avax"
+                blockchain == Chain.AVAX
+            }
+            with(routes[7]) {
+                id == "fuji"
+                blockchain == Chain.TESTNET_FUJI
+            }
+            with(routes[8]) {
+                id == "sepolia"
+                blockchain == Chain.TESTNET_SEPOLIA
+            }
+            with(routes[9]) {
+                id == "bsc-testnet"
+                blockchain == Chain.TESTNET_BSC
+            }
+            with(routes[10]) {
+                id == "mumbai"
+                blockchain == Chain.TESTNET_MUMBAI
             }
         }
         with(act.health) {
