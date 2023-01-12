@@ -40,10 +40,14 @@ class DefaultEthereumMethodsSpec extends Specification {
         Chain.ETHEREUM         | '"0x1"'
         Chain.ETHEREUM_CLASSIC | '"0x3d"'
         Chain.TESTNET_KOVAN    | '"0x2a"'
-//        Chain.BSC              | '"0x38"'
-        Chain.BSC              | '"0xa86a"'
+        Chain.BSC              | '"0x38"'
+        Chain.AVAX             | '"0xa86a"'
         Chain.TESTNET_GOERLI   | '"0x5"'
         Chain.TESTNET_RINKEBY  | '"0x4"'
         Chain.TESTNET_ROPSTEN  | '"0x3"'
+        Chain.TESTNET_SEPOLIA  | '"0xaa36a7"'
+        Chain.TESTNET_BSC      | '"0x61"'
+        Chain.TESTNET_MUMBAI   | '"0x13881"'
+        Chain.TESTNET_FUJI     | '"0xa869"'
     }
 }

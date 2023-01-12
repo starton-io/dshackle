@@ -146,9 +146,21 @@ class DefaultEthereumMethods(
                     Chain.BSC == chain -> {
                         "\"56\""
                     }
-//                    Chain.AVAX == chain -> {
-//                        "\"43114\""
-//                    }
+                    Chain.AVAX == chain -> {
+                        "\"43114\""
+                    }
+                    Chain.TESTNET_SEPOLIA == chain -> {
+                        "\"11155111\""
+                    }
+                    Chain.TESTNET_BSC == chain -> {
+                        "\"97\""
+                    }
+                    Chain.TESTNET_MUMBAI == chain -> {
+                        "\"80001\""
+                    }
+                    Chain.TESTNET_FUJI == chain -> {
+                        "\"43113\""
+                    }
                     else -> throw RpcException(-32602, "Invalid chain")
                 }
             }
@@ -181,9 +193,21 @@ class DefaultEthereumMethods(
                     Chain.BSC == chain -> {
                         "\"0x38\""
                     }
-//                    Chain.AVAX == chain -> {
-//                        "\"0xa86a\""
-//                    }
+                    Chain.AVAX == chain -> {
+                        "\"0xa86a\""
+                    }
+                    Chain.TESTNET_SEPOLIA == chain -> {
+                        "\"0xaa36a7\""
+                    }
+                    Chain.TESTNET_BSC == chain -> {
+                        "\"0x61\""
+                    }
+                    Chain.TESTNET_MUMBAI == chain -> {
+                        "\"0x13881\""
+                    }
+                    Chain.TESTNET_FUJI == chain -> {
+                        "\"0xa869\""
+                    }
                     else -> throw RpcException(-32602, "Invalid chain")
                 }
             }

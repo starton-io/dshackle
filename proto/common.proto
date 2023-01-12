@@ -16,7 +16,7 @@ enum ChainRef {
     CHAIN_ETHEREUM_CLASSIC = 101;
     CHAIN_FANTOM = 102; // Fantom, https://fantom.foundation/
     CHAIN_BSC = 103; // https://www.bnbchain.org/
-//    CHAIN_AVAX = 203;
+    CHAIN_AVAX = 104;
     // Sidechains and state channels start with 1_000
     // CHAIN_LIGHTNING = 1001;
     CHAIN_MATIC = 1002; // Matic PoS Ethereum sidechain based on Polygon
@@ -30,6 +30,10 @@ enum ChainRef {
     CHAIN_GOERLI = 10005;
     CHAIN_ROPSTEN = 10006;
     CHAIN_RINKEBY = 10007;
+    CHAIN_SEPOLIA = 10008;
+    CHAIN_TESTNET_BSC = 10009;
+    CHAIN_MUMBAI = 10010;
+    CHAIN_FUJI = 10011;
 
     // Non-standard starts from 20_000
 }
