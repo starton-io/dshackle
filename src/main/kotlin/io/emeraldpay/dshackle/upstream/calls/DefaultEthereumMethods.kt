@@ -209,6 +209,7 @@ class DefaultEthereumMethods(
                         "\"0xa869\""
                     }
                     else -> throw RpcException(-32602, "Invalid chain")
+
                 }
             }
             "net_peerCount" -> {
