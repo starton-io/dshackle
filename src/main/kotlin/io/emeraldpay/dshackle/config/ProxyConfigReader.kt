@@ -74,7 +74,8 @@ class ProxyConfigReader : YamlConfigReader(), ConfigReader<ProxyConfig> {
         getList<MappingNode>(input, "routes")?.let { routes ->
             config.routes = routes.value.map { route ->
                 val id = getValueAsString(route, "id")
-                if (id == null || StringUtils.isEmpty(id) || !StringUtils.isAlphanumeric(id)) {
+                //  || !StringUtils.isAlphanumeric(id)
+                if (id == null || StringUtils.isEmpty(id)) {
                     throw InvalidConfigYamlException(filename, route.startMark, "Route id must be alphanumeric")
                 }
                 if (currentRoutes.contains(id)) {
