@@ -12,15 +12,26 @@ enum ChainRef {
     CHAIN_BITCOIN = 1;
     // CHAIN_GRIN = 2;
 
+    // Mainchains (Layer 1) start with 1_00
     CHAIN_ETHEREUM = 100;
     CHAIN_ETHEREUM_CLASSIC = 101;
     CHAIN_FANTOM = 102; // Fantom, https://fantom.foundation/
-    CHAIN_BSC = 103; // https://www.bnbchain.org/
+    CHAIN_BSC = 103;
     CHAIN_AVAX = 104;
-    // Sidechains and state channels start with 1_000
+    CHAIN_ARBITRUM = 105;
+    CHAIN_MOONBEAM = 106;
+    CHAIN_CELO = 107;
+    CHAIN_EVMOS = 108;
+    CHAIN_CRONOS = 109;
+    CHAIN_NEON = 110;
+
+    // Sidechains (Layer 2) and state channels start with 1_000
     // CHAIN_LIGHTNING = 1001;
     CHAIN_MATIC = 1002; // Matic PoS Ethereum sidechain based on Polygon
     CHAIN_RSK = 1003; // RSK sidechain, https://www.rsk.co/
+    CHAIN_OPTIMISM = 1004;
+    CHAIN_EOS = 1005;
+    CHAIN_MILKOMEDA = 1006;
 
     // Testnets start with 10_000
     CHAIN_MORDEN = 10001;
@@ -34,6 +45,14 @@ enum ChainRef {
     CHAIN_TESTNET_BSC = 10009;
     CHAIN_MUMBAI = 10010;
     CHAIN_FUJI = 10011;
+    CHAIN_TESTNET_OPTIMISM = 10012;
+    CHAIN_TESTNET_ARBITRUM = 10013;
+    CHAIN_TESTNET_FANTOM = 10014;
+    CHAIN_TESTNET_EVMOS = 10015;
+    CHAIN_TESTNET_CRONOS = 10016;
+    CHAIN_TESTNET_NEON = 10017;
+    CHAIN_TESTNET_MILKOMEDA = 10018;
+    CHAIN_TESTNET_RSK = 10019;
 
     // Non-standard starts from 20_000
 }

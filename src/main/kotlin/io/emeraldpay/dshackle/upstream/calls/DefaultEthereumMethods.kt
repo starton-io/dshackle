@@ -128,6 +128,39 @@ class DefaultEthereumMethods(
                     Chain.MATIC == chain -> {
                         "\"137\""
                     }
+                    Chain.BSC == chain -> {
+                        "\"56\""
+                    }
+                    Chain.AVAX == chain -> {
+                        "\"43114\""
+                    }
+                    Chain.ARBITRUM == chain -> {
+                        "\"42161\""
+                    }
+                    Chain.MOONBEAM == chain -> {
+                        "\"1284\""
+                    }
+                    Chain.CELO == chain -> {
+                        "\"42220\""
+                    }
+                    Chain.EVMOS == chain -> {
+                        "\"9001\""
+                    }
+                    Chain.CRONOS == chain -> {
+                        "\"25\""
+                    }
+                    Chain.NEON == chain -> {
+                        "\"245022934\""
+                    }
+                    Chain.OPTIMISM == chain -> {
+                        "\"10\""
+                    }
+                    Chain.EOS == chain -> {
+                        "\"59\""
+                    }
+                    Chain.MILKOMEDA == chain -> {
+                        "\"2001\""
+                    }
                     Chain.TESTNET_MORDEN == chain -> {
                         "\"2\""
                     }
@@ -143,12 +176,6 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_GOERLI == chain -> {
                         "\"5\""
                     }
-                    Chain.BSC == chain -> {
-                        "\"56\""
-                    }
-                    Chain.AVAX == chain -> {
-                        "\"43114\""
-                    }
                     Chain.TESTNET_SEPOLIA == chain -> {
                         "\"11155111\""
                     }
@@ -161,9 +188,37 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_FUJI == chain -> {
                         "\"43113\""
                     }
+                    Chain.TESTNET_SEPOLIA == chain -> {
+                        "\"11155111\""
+                    }
+                    Chain.TESTNET_OPTIMISM == chain -> {
+                        "\"300\""
+                    }
+                    Chain.TESTNET_ARBITRUM == chain -> {
+                        "\"421613\""
+                    }
+                    Chain.TESTNET_FANTOM == chain -> {
+                        "\"4002\""
+                    }
+                    Chain.TESTNET_EVMOS == chain -> {
+                        "\"9000\""
+                    }
+                    Chain.TESTNET_CRONOS == chain -> {
+                        "\"338\""
+                    }
+                    Chain.TESTNET_NEON == chain -> {
+                        "\"245022940\""
+                    }
+                    Chain.TESTNET_MILKOMEDA == chain -> {
+                        "\"200101\""
+                    }
+                    Chain.TESTNET_RSK == chain -> {
+                        "\"31\""
+                    }
                     else -> throw RpcException(-32602, "Invalid chain")
                 }
             }
+
             "eth_chainId" -> {
                 when {
                     Chain.ETHEREUM == chain -> {
@@ -171,6 +226,39 @@ class DefaultEthereumMethods(
                     }
                     Chain.MATIC == chain -> {
                         "\"0x89\""
+                    }
+                    Chain.BSC == chain -> {
+                        "\"0x38\""
+                    }
+                    Chain.AVAX == chain -> {
+                        "\"0xa86a\""
+                    }
+                    Chain.ARBITRUM == chain -> {
+                        "\"0xa4b1\""
+                    }
+                    Chain.MOONBEAM == chain -> {
+                        "\"0x504\""
+                    }
+                    Chain.CELO == chain -> {
+                        "\"0xa4eC\""
+                    }
+                    Chain.EVMOS == chain -> {
+                        "\"0x2329\""
+                    }
+                    Chain.CRONOS == chain -> {
+                        "\"0x19\""
+                    }
+                    Chain.NEON == chain -> {
+                        "\"0xe9aC0d6\""
+                    }
+                    Chain.OPTIMISM == chain -> {
+                        "\"0xa\""
+                    }
+                    Chain.EOS == chain -> {
+                        "\"0x3b\""
+                    }
+                    Chain.MILKOMEDA == chain -> {
+                        "\"0x7d1\""
                     }
                     Chain.TESTNET_ROPSTEN == chain -> {
                         "\"0x3\""
@@ -190,12 +278,6 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_GOERLI == chain -> {
                         "\"0x5\""
                     }
-                    Chain.BSC == chain -> {
-                        "\"0x38\""
-                    }
-                    Chain.AVAX == chain -> {
-                        "\"0xa86a\""
-                    }
                     Chain.TESTNET_SEPOLIA == chain -> {
                         "\"0xaa36a7\""
                     }
@@ -208,6 +290,33 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_FUJI == chain -> {
                         "\"0xa869\""
                     }
+                    Chain.TESTNET_OPTIMISM == chain -> {
+                        "\"0x12c\""
+                    }
+                    Chain.TESTNET_ARBITRUM == chain -> {
+                        "\"0x66eed\""
+                    }
+                    Chain.TESTNET_FANTOM == chain -> {
+                        "\"0xfa2\""
+                    }
+                    Chain.TESTNET_EVMOS == chain -> {
+                        "\"0x2328\""
+                    }
+                    Chain.TESTNET_CRONOS == chain -> {
+                        "\"0x152\""
+                    }
+                    Chain.TESTNET_NEON == chain -> {
+                        "\"0xe9ac0dc\""
+                    }
+                    Chain.TESTNET_MILKOMEDA == chain -> {
+                        "\"0x30da5\""
+                    }
+                    Chain.TESTNET_RSK == chain -> {
+                        "\"0x1f\""
+                    }
+
+
+
                     else -> throw RpcException(-32602, "Invalid chain")
 
                 }
