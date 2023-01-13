@@ -43,6 +43,7 @@ class DefaultEthereumMethodsSpec extends Specification {
         Chain.MATIC            | '"0x89"'
         Chain.AVAX             | '"0xa86a"'
         Chain.ARBITRUM         | '"0xa4b1"'
+        Chain.NOVA             | '"0xa4ba"'
         Chain.MOONBEAM         | '"0x504"'
         Chain.CELO             | '"0xa4eC"'
         Chain.EVMOS            | '"0x2329"'

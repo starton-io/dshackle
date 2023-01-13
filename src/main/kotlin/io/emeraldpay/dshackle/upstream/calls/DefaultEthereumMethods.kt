@@ -137,6 +137,9 @@ class DefaultEthereumMethods(
                     Chain.ARBITRUM == chain -> {
                         "\"42161\""
                     }
+                    Chain.NOVA == chain -> {
+                        "\"42170\""
+                    }
                     Chain.MOONBEAM == chain -> {
                         "\"1284\""
                     }
@@ -236,6 +239,9 @@ class DefaultEthereumMethods(
                     Chain.ARBITRUM == chain -> {
                         "\"0xa4b1\""
                     }
+                    Chain.NOVA == chain -> {
+                        "\"0xa4Ba\""
+                    }
                     Chain.MOONBEAM == chain -> {
                         "\"0x504\""
                     }
@@ -314,11 +320,7 @@ class DefaultEthereumMethods(
                     Chain.TESTNET_RSK == chain -> {
                         "\"0x1f\""
                     }
-
-
-
                     else -> throw RpcException(-32602, "Invalid chain")
-
                 }
             }
             "net_peerCount" -> {

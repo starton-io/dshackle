@@ -18,12 +18,11 @@ enum ChainRef {
     CHAIN_FANTOM = 102; // Fantom, https://fantom.foundation/
     CHAIN_BSC = 103;
     CHAIN_AVAX = 104;
-    CHAIN_ARBITRUM = 105;
-    CHAIN_MOONBEAM = 106;
-    CHAIN_CELO = 107;
-    CHAIN_EVMOS = 108;
-    CHAIN_CRONOS = 109;
-    CHAIN_NEON = 110;
+    CHAIN_MOONBEAM = 105;
+    CHAIN_CELO = 106;
+    CHAIN_EVMOS = 107;
+    CHAIN_CRONOS = 108;
+    CHAIN_NEON = 109;
 
     // Sidechains (Layer 2) and state channels start with 1_000
     // CHAIN_LIGHTNING = 1001;
@@ -32,6 +31,8 @@ enum ChainRef {
     CHAIN_OPTIMISM = 1004;
     CHAIN_EOS = 1005;
     CHAIN_MILKOMEDA = 1006;
+    CHAIN_ARBITRUM = 1007;
+    CHAIN_NOVA = 1008;
 
     // Testnets start with 10_000
     CHAIN_MORDEN = 10001;

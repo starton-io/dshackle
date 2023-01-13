@@ -88,6 +88,8 @@ class Global {
             "bitcoin-testnet" to Chain.TESTNET_BITCOIN,
             "arbitrum" to Chain.ARBITRUM,
             "arbitrum-mainnet" to Chain.ARBITRUM,
+            "arbitrum-nova" to Chain.NOVA,
+            "nova" to Chain.NOVA,
             "arbitrum-testnet" to Chain.TESTNET_ARBITRUM,
             "moonbeam" to Chain.MOONBEAM,
             "moonbeam-mainnet" to Chain.MOONBEAM,
