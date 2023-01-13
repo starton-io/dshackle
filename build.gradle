@@ -152,7 +152,7 @@ jib {
         //  dshackle:<versionFull> and
         //  dshackle:<versionMajor.versionMinor>
         //  dshackle:latest only when publishing first version with zero patch (ex. 1.2.0)
-        image = 'starton-dshackle'
+        image = 'startonio/dshackle'
         tags = ['0.1.0']
 //        image = [
 //                project.hasProperty('docker') ? project.property('docker') : 'emeraldpay',
