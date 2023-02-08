@@ -29,8 +29,13 @@ import reactor.core.publisher.Mono
  */
 open class TxMemCache(
     // usually there is 100-150 tx per block on Ethereum, we keep data for about 32 blocks by default
+    memGlobalCache: Boolean = false,
+    memTxCache: Boolean = false,
     private val maxSize: Int = 125 * 32
 ) : Reader<TxId, TxContainer> {
+
+    private val globalCacheActive: Boolean = memGlobalCache
+    private val txCacheActive: Boolean = memTxCache
 
     companion object {
         private val log = LoggerFactory.getLogger(TxMemCache::class.java)
@@ -59,9 +64,14 @@ open class TxMemCache(
 
     open fun add(tx: TxContainer) {
         // do not cache fresh transactions
+        if (globalCacheActive == false && txCacheActive == false) {
+//            log.info("Tx memory cache not active.")
+            return
+        }
         if (tx.blockId == null) {
             return
         }
+//        log.info("tx added to cache ${tx.hash}")
         mapping.put(tx.hash, tx)
     }
 

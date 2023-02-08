@@ -32,6 +32,7 @@ class MainConfigReader(
     private val proxyConfigReader = ProxyConfigReader()
     private val upstreamsConfigReader = UpstreamsConfigReader(fileResolver)
     private val cacheConfigReader = CacheConfigReader()
+    private val memCacheConfigReader = MemCacheConfigReader()
     private val tokensConfigReader = TokensConfigReader()
     private val monitoringConfigReader = MonitoringConfigReader()
     private val egressLogConfigReader = EgressLogConfigReader()
@@ -64,6 +65,9 @@ class MainConfigReader(
         }
         cacheConfigReader.read(input)?.let {
             config.cache = it
+        }
+        memCacheConfigReader.read(input)?.let {
+            config.memCache = it
         }
         tokensConfigReader.read(input)?.let {
             config.tokens = it

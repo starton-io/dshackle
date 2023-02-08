@@ -57,6 +57,7 @@ open class Caches(
         }
     }
 
+    // TODO -> Remove mem cache by height, find solution.
     private val memHeightByHash: HeightByHashMemCache = HeightByHashMemCache()
 
     private val blocksByHash: Reader<BlockId, BlockContainer>
@@ -237,6 +238,38 @@ open class Caches(
         private var redisReceiptCache: ReceiptRedisCache? = null
         private var redisHeightByHashCache: HeightByHashRedisCache? = null
 
+        // caching memory parameters.
+        private var memGlobalCache = false
+        private var memBlockCache = false
+        private var memHeightCache = false
+        private var memTxCache = false
+        private var memReceiptCache = false
+
+        fun activateGlobalMemoryCache(active: Boolean): Boolean {
+            memGlobalCache = active
+            return memGlobalCache
+        }
+
+        fun activateBlockMemoryCache(active: Boolean): Boolean {
+            memBlockCache = active
+            return memBlockCache
+        }
+
+        fun activateHeightMemoryCache(active: Boolean): Boolean {
+            memHeightCache = active
+            return memHeightCache
+        }
+
+        fun activateTxMemoryCache(active: Boolean): Boolean {
+            memTxCache = active
+            return memTxCache
+        }
+
+        fun activateReceiptMemoryCache(active: Boolean): Boolean {
+            memReceiptCache = active
+            return memReceiptCache
+        }
+
         fun setBlockByHash(cache: BlocksMemCache): Builder {
             blocksByHash = cache
             return this
@@ -279,16 +312,20 @@ open class Caches(
 
         fun build(): Caches {
             if (blocksByHash == null) {
-                blocksByHash = BlocksMemCache()
+                blocksByHash = BlocksMemCache(memGlobalCache, memBlockCache)
+//                blocksByHash = BlocksMemCache()
             }
             if (blocksByHeight == null) {
-                blocksByHeight = HeightCache()
+                blocksByHeight = HeightCache(memGlobalCache, memHeightCache)
+//                blocksByHeight = HeightCache()
             }
             if (txsByHash == null) {
-                txsByHash = TxMemCache()
+                txsByHash = TxMemCache(memGlobalCache, memTxCache)
+//                txsByHash = TxMemCache()
             }
             if (receipts == null) {
-                receipts = ReceiptMemCache()
+                receipts = ReceiptMemCache(memGlobalCache, memReceiptCache)
+//                receipts = ReceiptMemCache()
             }
             return Caches(
                 blocksByHash!!, blocksByHeight!!, txsByHash!!, receipts!!,

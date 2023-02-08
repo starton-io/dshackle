@@ -35,10 +35,12 @@ class HeightByHashMemCache(
         .build<BlockId, Long>()
 
     override fun read(key: BlockId): Mono<Long> {
+//        log.info("Reading cache for block Height...")
         return Mono.justOrEmpty(heights.getIfPresent(key))
     }
 
     fun add(block: BlockContainer) {
+//        log.info("Adding Cache for block height...")
         heights.put(block.hash, block.height)
     }
 }
