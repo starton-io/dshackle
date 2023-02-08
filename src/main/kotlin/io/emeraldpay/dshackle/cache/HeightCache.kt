@@ -15,6 +15,7 @@
  */
 package io.emeraldpay.dshackle.cache
 
+import org.slf4j.LoggerFactory
 import com.github.benmanes.caffeine.cache.Caffeine
 import io.emeraldpay.dshackle.data.BlockContainer
 import io.emeraldpay.dshackle.data.BlockId
@@ -25,8 +26,17 @@ import reactor.core.publisher.Mono
  * Memory cache for blocks heights, keeps mapping height->hash.
  */
 open class HeightCache(
+    memGlobalCache: Boolean = false,
+    memHeightCache: Boolean = false,
     maxSize: Int = 512
 ) : Reader<Long, BlockId> {
+
+    private val globalCacheActive: Boolean = memGlobalCache
+    private val heightCacheActive: Boolean = memHeightCache
+
+    companion object {
+        private val log = LoggerFactory.getLogger(HeightCache::class.java)
+    }
 
     private val heights = Caffeine.newBuilder()
         .maximumSize(maxSize.toLong())
@@ -38,6 +48,10 @@ open class HeightCache(
 
     open fun add(block: BlockContainer): BlockId? {
         val previousId = heights.getIfPresent(block.height)
+        if (globalCacheActive == false && heightCacheActive == false) {
+//            log.info("Height memory caching not active.")
+            return previousId
+        }
         heights.put(block.height, block.hash)
         return previousId
     }

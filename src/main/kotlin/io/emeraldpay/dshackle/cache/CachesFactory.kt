@@ -16,6 +16,7 @@
 package io.emeraldpay.dshackle.cache
 
 import io.emeraldpay.dshackle.config.CacheConfig
+import io.emeraldpay.dshackle.config.MemCacheConfig
 import io.emeraldpay.grpc.Chain
 import io.lettuce.core.RedisClient
 import io.lettuce.core.RedisConnectionException
@@ -33,7 +34,8 @@ import kotlin.system.exitProcess
 
 @Repository
 open class CachesFactory(
-    @Autowired private val cacheConfig: CacheConfig
+    @Autowired private val cacheConfig: CacheConfig,
+    @Autowired private val memCacheConfig: MemCacheConfig
 ) {
 
     companion object {
@@ -43,6 +45,11 @@ open class CachesFactory(
 
     private var redis: StatefulRedisConnection<String, ByteArray>? = null
     private val all = EnumMap<Chain, Caches>(io.emeraldpay.grpc.Chain::class.java)
+    var MemGlobalCache = memCacheConfig.globalEnabled
+    var MemBlockCache = memCacheConfig.block
+    var MemHeightCache = memCacheConfig.height
+    var MemTxCache = memCacheConfig.tx
+    var MemReceiptCache = memCacheConfig.receipt
 
     @PostConstruct
     fun init() {
@@ -91,6 +98,11 @@ open class CachesFactory(
 
     private fun initCache(chain: Chain): Caches {
         val caches = Caches.newBuilder()
+        caches.activateGlobalMemoryCache(MemGlobalCache)
+        caches.activateBlockMemoryCache(MemBlockCache)
+        caches.activateHeightMemoryCache(MemHeightCache)
+        caches.activateTxMemoryCache(MemTxCache)
+        caches.activateReceiptMemoryCache(MemReceiptCache)
         redis?.let { redis ->
             caches.setBlockByHash(BlocksRedisCache(redis.reactive(), chain))
             caches.setTxByHash(TxRedisCache(redis.reactive(), chain))

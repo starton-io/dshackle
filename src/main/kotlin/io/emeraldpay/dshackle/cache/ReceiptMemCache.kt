@@ -28,9 +28,14 @@ import reactor.core.publisher.Mono
  * Keeps receipts for recent blocks in memory
  */
 open class ReceiptMemCache(
+    memGlobalCache: Boolean = false,
+    memReceiptCache: Boolean = false,
     // how many blocks to keeps in memory
     val blocks: Int = 6
 ) : Reader<TxId, ByteArray> {
+
+    private val globalCacheActive: Boolean = memGlobalCache
+    private val receiptCacheActive: Boolean = memReceiptCache
 
     companion object {
         private val log = LoggerFactory.getLogger(ReceiptMemCache::class.java)
@@ -51,7 +56,12 @@ open class ReceiptMemCache(
     }
 
     open fun add(receipt: DefaultContainer<TransactionReceiptJson>): Mono<Void> {
+        if (globalCacheActive == false && receiptCacheActive == false) {
+//            log.info("Receipt Memory caching not active.")
+            return Mono.empty()
+        }
         if (receipt.txId != null && receipt.json != null) {
+//            log.info("Receipt added to cache ${receipt.txId}")
             mapping.put(receipt.txId, receipt.json)
         }
         return Mono.empty()

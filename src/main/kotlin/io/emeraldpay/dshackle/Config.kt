@@ -16,6 +16,7 @@
  */
 package io.emeraldpay.dshackle
 
+import io.emeraldpay.dshackle.config.MemCacheConfig
 import io.emeraldpay.dshackle.config.CacheConfig
 import io.emeraldpay.dshackle.config.HealthConfig
 import io.emeraldpay.dshackle.config.MainConfig
@@ -122,6 +123,12 @@ open class Config(
     @Bean
     open fun cacheConfig(@Autowired mainConfig: MainConfig): CacheConfig {
         return mainConfig.cache ?: CacheConfig()
+    }
+
+    @Bean
+    open fun memCacheConfig(@Autowired mainConfig: MainConfig): MemCacheConfig?{
+        log.info("memCache ${mainConfig.memCache}")
+        return mainConfig.memCache ?: MemCacheConfig()
     }
 
     @Bean

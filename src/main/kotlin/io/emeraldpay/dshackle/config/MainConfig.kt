@@ -20,6 +20,7 @@ class MainConfig {
     var port = 2449
     var tls: AuthConfig.ServerTlsAuth? = null
     var cache: CacheConfig? = null
+    var memCache: MemCacheConfig? = null
     var proxy: ProxyConfig? = null
     var upstreams: UpstreamsConfig? = null
     var tokens: TokensConfig? = null
