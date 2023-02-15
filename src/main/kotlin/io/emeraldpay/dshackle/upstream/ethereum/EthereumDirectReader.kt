@@ -126,17 +126,17 @@ class EthereumDirectReader(
                         try {
                             // Caching needs some additional data (ex. Height) to make a decision on how long and where to cache
                             // So we have to parse the JSON here and extract reference data
-                            val receipt = objectMapper.readValue(json, TransactionReceiptJson::class.java)
-                            caches.cacheReceipt(
-                                Caches.Tag.REQUESTED,
-                                DefaultContainer(
-                                    txId = TxId.from(key),
-                                    blockId = BlockId.from(receipt.blockHash),
-                                    height = receipt.blockNumber,
-                                    json = json,
-                                    parsed = receipt
-                                )
-                            )
+//                            val receipt = objectMapper.readValue(json, TransactionReceiptJson::class.java)
+//                            caches.cacheReceipt(
+//                                Caches.Tag.REQUESTED,
+//                                DefaultContainer(
+//                                    txId = TxId.from(key),
+//                                    blockId = BlockId.from(receipt.blockHash),
+//                                    height = receipt.blockNumber,
+//                                    json = json,
+//                                    parsed = receipt
+//                                )
+//                            )
                         } catch (t: Throwable) {
                             log.warn("Failed to cache Tx Receipt", t)
                         }
